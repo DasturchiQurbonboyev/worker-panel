@@ -187,7 +187,7 @@ const Buyrutmalar = () => {
       const response = await fetch(
         `http://45.154.2.116:7010/api/worker/booking/${id}/status?status=${editStatus}`,
         {
-          method: "PATCH",
+          method:"PATCH",
           headers: {
             "Content-type": "application/json",
             "Authorization": `Bearer ${token}`,
@@ -351,7 +351,6 @@ const Buyrutmalar = () => {
                         </button>
                         <button
                         onClick={() => {
-                          // setEditStatus("PENDING")
                           editBuyrutma(el?.id, "PENDING")
                         }}
                           style={{ padding: "5px 10px" }}
@@ -364,7 +363,6 @@ const Buyrutmalar = () => {
                     ) : (
                       <button
                       onClick={() => {
-                        // setEditStatus("COMPLETED")
                         editBuyrutma(el?.id, "COMPLETED")
                       }}
                       style={{padding:"5px 10px"}}

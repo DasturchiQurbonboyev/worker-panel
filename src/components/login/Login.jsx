@@ -9,33 +9,59 @@ const Login = () => {
   const [login, setLogin] = useState()
   const [password, setPassword] = useState()
   const navigate = useNavigate()
+  const [role, setRole] = useState("")
 
 
 
-  const loginSubmit =(event)=>{
-
-    event.preventDefault()
+  const loginSubmit = (event) => {
+    event.preventDefault();
+  
     fetch("http://45.154.2.116:7010/api/auth/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        phoneNumber : login,
-        password : password
-      })
+        phoneNumber: login,
+        password: password,
+      }),
     })
-    .then((res)=> res.json())
-    .then((item)=> {
-      if(item?.token){
-        localStorage.setItem("token", item?.token)
-        toast.success("Login Successfull")
-        navigate("/buyrutmalar")
-      } else{
-        toast.error("Login Failed")
-      }
+      .then((res) => res.json())
+      .then((item) => {
+        if (item?.token) {
+          localStorage.setItem("token", item?.token);
+  
+          getMyInfo().then((user) => {
+            setRole(user?.role); 
+            if (user?.role === "WORKER") {
+              toast.success("Login Successful");
+              navigate("/buyrutmalar");
+            } else {
+              toast.warning("Siz Ishchi emassiz");
+              navigate("/");
+            }
+          });
+  
+        } else {
+          toast.error("Login Failed");
+        }
+      });
+  };
+  
+  const getMyInfo = () => {
+    return fetch("http://45.154.2.116:7010/api/profile", {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        return data; 
+      });
+  };
+  
 
   return (
     <>

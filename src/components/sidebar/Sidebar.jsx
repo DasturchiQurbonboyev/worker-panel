@@ -28,11 +28,11 @@ const Sidebar = ({ children }) => {
     const menuItem = [
         {
             path: "/buyrutmalar",
-            name: "Activ buyrutmalar",
+            name: "Activ buyurtmalar",
         },
         {
             path: "/history",
-            name: "Buyrutmalar tarixi",
+            name: "Buyurtmalar tarixi",
         },       
 
     ]
