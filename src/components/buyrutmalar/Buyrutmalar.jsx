@@ -94,7 +94,7 @@ const Buyrutmalar = () => {
   }
 
   const getBuyrutmaLar = () => {
-    fetch("http://45.154.2.116:7010/api/bookings/booking", {
+    fetch("https://u-dev.uz/api/bookings/booking", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -109,7 +109,7 @@ const Buyrutmalar = () => {
   };
 
   const getTarifData = () => {
-    fetch("http://45.154.2.116:7010/api/users/tariffs", {
+    fetch("https://u-dev.uz/api/users/tariffs", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -123,7 +123,7 @@ const Buyrutmalar = () => {
   };
 
   const getBoxData = () => {
-    fetch("http://45.154.2.116:7010/api/users/boxes", {
+    fetch("https://u-dev.uz/api/users/boxes", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
@@ -141,7 +141,7 @@ const Buyrutmalar = () => {
 
     try {
       const response = await fetch(
-        "http://45.154.2.116:7010/api/users/booking",
+        "https://u-dev.uz/api/users/booking",
         {
           method: "POST",
           headers: {
@@ -185,7 +185,7 @@ const Buyrutmalar = () => {
   const editBuyrutma = async (id, editStatus) => {
     try {
       const response = await fetch(
-        `http://45.154.2.116:7010/api/worker/booking/${id}/status?status=${editStatus}`,
+        `https://u-dev.uz/api/worker/booking/${id}/status?status=${editStatus}`,
         {
           method:"PATCH",
           headers: {

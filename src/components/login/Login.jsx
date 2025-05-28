@@ -16,7 +16,7 @@ const Login = () => {
   const loginSubmit = (event) => {
     event.preventDefault();
   
-    fetch("http://45.154.2.116:7010/api/auth/login", {
+    fetch("https://u-dev.uz/api/auth/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -49,7 +49,7 @@ const Login = () => {
   };
   
   const getMyInfo = () => {
-    return fetch("http://45.154.2.116:7010/api/profile", {
+    return fetch("https://u-dev.uz/api/profile", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
